@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		AC6DBA3226CC03BE00DA514A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */; };
 		AC6DBA3426CC03BE00DA514A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */; };
-		AC6DBA3626CC03BE00DA514A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3526CC03BE00DA514A /* ViewController.swift */; };
+		AC6DBA3626CC03BE00DA514A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3526CC03BE00DA514A /* MainViewController.swift */; };
 		AC6DBA3926CC03BE00DA514A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6DBA3726CC03BE00DA514A /* Main.storyboard */; };
 		AC6DBA3B26CC03C500DA514A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6DBA3A26CC03C500DA514A /* Assets.xcassets */; };
 		AC6DBA3E26CC03C500DA514A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6DBA3C26CC03C500DA514A /* LaunchScreen.storyboard */; };
+		AC6DBA4926CC087E00DA514A /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA4826CC087E00DA514A /* MainTableViewCell.swift */; };
+		AC6DBA4C26CC092500DA514A /* MainTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA4B26CC092500DA514A /* MainTableViewCellModel.swift */; };
+		ACE2DE2C26CC16DB008F11D7 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2DE2B26CC16DB008F11D7 /* MainViewModel.swift */; };
+		ACE2DE2F26CC173F008F11D7 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2DE2E26CC173F008F11D7 /* DataModel.swift */; };
+		ACE2DE3226CC175F008F11D7 /* MainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2DE3126CC175F008F11D7 /* MainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC6DBA2E26CC03BE00DA514A /* MVVMSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC6DBA3526CC03BE00DA514A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC6DBA3526CC03BE00DA514A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AC6DBA3826CC03BE00DA514A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC6DBA3A26CC03C500DA514A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC6DBA3D26CC03C500DA514A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC6DBA3F26CC03C500DA514A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC6DBA4826CC087E00DA514A /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		AC6DBA4B26CC092500DA514A /* MainTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCellModel.swift; sourceTree = "<group>"; };
+		ACE2DE2B26CC16DB008F11D7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		ACE2DE2E26CC173F008F11D7 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		ACE2DE3126CC175F008F11D7 /* MainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +68,12 @@
 			children = (
 				AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */,
 				AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */,
-				AC6DBA3526CC03BE00DA514A /* ViewController.swift */,
+				AC6DBA3526CC03BE00DA514A /* MainViewController.swift */,
+				ACE2DE2B26CC16DB008F11D7 /* MainViewModel.swift */,
+				ACE2DE3126CC175F008F11D7 /* MainService.swift */,
+				ACE2DE2E26CC173F008F11D7 /* DataModel.swift */,
+				AC6DBA4826CC087E00DA514A /* MainTableViewCell.swift */,
+				AC6DBA4B26CC092500DA514A /* MainTableViewCellModel.swift */,
 				AC6DBA3726CC03BE00DA514A /* Main.storyboard */,
 				AC6DBA3A26CC03C500DA514A /* Assets.xcassets */,
 				AC6DBA3C26CC03C500DA514A /* LaunchScreen.storyboard */,
@@ -137,9 +152,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC6DBA3626CC03BE00DA514A /* ViewController.swift in Sources */,
+				ACE2DE2F26CC173F008F11D7 /* DataModel.swift in Sources */,
+				AC6DBA3626CC03BE00DA514A /* MainViewController.swift in Sources */,
+				ACE2DE3226CC175F008F11D7 /* MainService.swift in Sources */,
+				AC6DBA4C26CC092500DA514A /* MainTableViewCellModel.swift in Sources */,
 				AC6DBA3226CC03BE00DA514A /* AppDelegate.swift in Sources */,
+				AC6DBA4926CC087E00DA514A /* MainTableViewCell.swift in Sources */,
 				AC6DBA3426CC03BE00DA514A /* SceneDelegate.swift in Sources */,
+				ACE2DE2C26CC16DB008F11D7 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJSUL68A86;
 				INFOPLIST_FILE = MVVMSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +317,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.arieperetz.MVVMSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJSUL68A86;
 				INFOPLIST_FILE = MVVMSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.arieperetz.MVVMSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
