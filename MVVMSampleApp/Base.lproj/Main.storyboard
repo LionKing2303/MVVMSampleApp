@@ -12,7 +12,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MVVMSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="MVVMSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,6 +96,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8pm-5K-1Gh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="35C-5b-D97"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8pm-5K-1Gh" secondAttribute="trailing" constant="20" id="EeW-Kz-9tJ"/>
                             <constraint firstItem="Z9q-A8-udF" firstAttribute="top" secondItem="8pm-5K-1Gh" secondAttribute="bottom" constant="20" id="Jib-5g-UFx"/>
                             <constraint firstItem="Z9q-A8-udF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="MYh-PB-zkR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SnY-Yh-dFD" secondAttribute="bottom" id="MxM-v7-d3r"/>

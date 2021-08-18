@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AC6DBA3226CC03BE00DA514A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */; };
-		AC6DBA3426CC03BE00DA514A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */; };
 		AC6DBA3626CC03BE00DA514A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3526CC03BE00DA514A /* MainViewController.swift */; };
 		AC6DBA3926CC03BE00DA514A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6DBA3726CC03BE00DA514A /* Main.storyboard */; };
 		AC6DBA3B26CC03C500DA514A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6DBA3A26CC03C500DA514A /* Assets.xcassets */; };
@@ -158,7 +157,6 @@
 				AC6DBA4C26CC092500DA514A /* MainTableViewCellModel.swift in Sources */,
 				AC6DBA3226CC03BE00DA514A /* AppDelegate.swift in Sources */,
 				AC6DBA4926CC087E00DA514A /* MainTableViewCell.swift in Sources */,
-				AC6DBA3426CC03BE00DA514A /* SceneDelegate.swift in Sources */,
 				ACE2DE2C26CC16DB008F11D7 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,7 +307,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJSUL68A86;
 				INFOPLIST_FILE = MVVMSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,7 +327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJSUL68A86;
 				INFOPLIST_FILE = MVVMSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

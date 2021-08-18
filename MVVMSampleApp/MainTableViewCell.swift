@@ -16,7 +16,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var defaultBranchName: UILabel!
     @IBOutlet weak var language: UILabel!
         
-    private let defaultAvatarImage = UIImage(systemName: "person.fill")?.withTintColor(.lightGray, renderingMode: .alwaysOriginal)
+    private let defaultAvatarImage = UIImage(named: "person.fill")
     private var avatarImage: UIImage?
     
     func configure(with model: MainTableViewCellModel) {
@@ -36,7 +36,7 @@ class MainTableViewCell: UITableViewCell {
         // Set default image - set this until we fetch from server
         self.avatar.image = defaultAvatarImage
         guard let url = URL(string: urlString) else { return }
-        
+
         // Fetch image from server
         let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
             guard let data = data, error == nil else {
