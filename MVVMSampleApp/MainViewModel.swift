@@ -11,18 +11,12 @@ final class MainViewModel {
     // MARK: -- Private variables
     private let service: Service
     private var repos: [MainTableViewCellModel] = []
-    private var viewDelegate: MainViewControllerDelegate?
     
     // MARK: -- Public variables
-    var filtered: [MainTableViewCellModel] = [] {
-        didSet {
-            viewDelegate?.updateUI()
-        }
-    }
+    @Published var filtered: [MainTableViewCellModel] = []
     
-    init(service: Service, viewDelegate: MainViewControllerDelegate) {
+    init(service: Service) {
         self.service = service
-        self.viewDelegate = viewDelegate
     }
     
     func fetchRepositories() {

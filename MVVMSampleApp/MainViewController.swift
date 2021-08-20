@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Combine
 
-protocol MainViewControllerDelegate {
-    func updateUI()
+enum Section {
+    case main
 }
 
 class MainViewController: UIViewController {
@@ -18,14 +19,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: -- Variables
-    lazy var viewModel: MainViewModel = .init(service: MainService(), viewDelegate: self)
-
+    let viewModel: MainViewModel = .init(service: MainService())
+    var dataSource: UITableViewDiffableDataSource<Section,MainTableViewCellModel>!
+    var cancellables = Set<AnyCancellable>()
+    
     // MARK: -- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTable()
         configureSearchField()
+        bindTable()
         loadData()
     }
     
@@ -35,27 +39,35 @@ class MainViewController: UIViewController {
     }
     
     private func configureTable() {
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableView.automaticDimension
+        dataSource = .init(tableView: tableView, cellProvider: {
+            (tableView, indexPath, model) -> UITableViewCell? in
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier) as? MainTableViewCell else { return UITableViewCell() }
+            cell.configure(with: model)
+            return cell
+        })
+    }
+    
+    private func bindTable() {
+        viewModel.$filtered
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] items in
+                self?.applySnapshot(with: items)
+            }
+            .store(in: &cancellables)
     }
     
     private func loadData() {
         viewModel.fetchRepositories()
     }
-}
-
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.filtered.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier) as? MainTableViewCell else { return UITableViewCell() }
-        let model = viewModel.filtered[indexPath.row]
-        cell.configure(with: model)
-        return cell
+    private func applySnapshot(with items: [MainTableViewCellModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section,MainTableViewCellModel>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(items, toSection: .main)
+        dataSource.apply(snapshot)
     }
 }
 
@@ -64,16 +76,10 @@ extension MainViewController: UITextFieldDelegate {
         if let text = textField.text,
            let textRange = Range(range, in: text) {
             let updatedText = text.replacingCharacters(in: textRange, with: string)
+            
+            // Ask the view model to filter the items
             viewModel.filter(with: updatedText)
         }
         return true
-    }
-}
-
-extension MainViewController: MainViewControllerDelegate {
-    func updateUI() {
-        DispatchQueue.main.async {
-            self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
-        }
     }
 }
