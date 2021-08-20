@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import Combine
 
-final class MainViewModel {
+final class MainViewModel: ObservableObject {
     // MARK: -- Private variables
     private let service: Service
     private var repos: [MainTableViewCellModel] = []
-    
+    private var cancellables = Set<AnyCancellable>()
+
     // MARK: -- Public variables
     @Published var filtered: [MainTableViewCellModel] = []
     
@@ -20,14 +22,25 @@ final class MainViewModel {
     }
     
     func fetchRepositories() {
-        service.fetchData { [weak self] (repos) in
-            guard let self = self else { return }
-            
-            // Formatting the data model into representable model
-            self.repos = repos
-                .map(\.toCellModel)
-            self.filtered = self.repos
-        }
+        service.fetchData()
+            .receive(on: DispatchQueue.main)
+            .map { item in
+                item.map(\.toCellModel)
+            }
+            .sink { completion in
+                switch completion {
+                case .failure:
+                    self.repos = []
+                    self.filtered = self.repos
+                case .finished:
+                    break
+                }
+            } receiveValue: { [weak self] repos in
+                guard let self = self else { return }
+                self.repos = repos
+                self.filtered = self.repos
+            }
+            .store(in: &cancellables)
     }
     
     func filter(with text: String) {
