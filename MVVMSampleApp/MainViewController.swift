@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate {
+    func updateUI()
+}
+
 class MainViewController: UIViewController {
 
     // MARK: -- Outlets
@@ -14,8 +18,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: -- Variables
-    let viewModel: MainViewModel = .init(service: MainService())
+    lazy var viewModel: MainViewModel = .init(service: MainService(), viewDelegate: self)
 
+    // MARK: -- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +29,7 @@ class MainViewController: UIViewController {
         loadData()
     }
     
+    // MARK: -- Private methods
     private func configureSearchField() {
         searchField.delegate = self
     }
@@ -36,9 +42,7 @@ class MainViewController: UIViewController {
     }
     
     private func loadData() {
-        viewModel.fetchRepositories { [weak self] in
-            self?.tableView.reloadData()
-        }
+        viewModel.fetchRepositories()
     }
 }
 
@@ -60,10 +64,16 @@ extension MainViewController: UITextFieldDelegate {
         if let text = textField.text,
            let textRange = Range(range, in: text) {
             let updatedText = text.replacingCharacters(in: textRange, with: string)
-            viewModel.filter(with: updatedText) { [weak self] in
-                self?.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
-            }
+            viewModel.filter(with: updatedText)
         }
         return true
+    }
+}
+
+extension MainViewController: MainViewControllerDelegate {
+    func updateUI() {
+        DispatchQueue.main.async {
+            self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
+        }
     }
 }

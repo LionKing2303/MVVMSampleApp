@@ -12,13 +12,13 @@ protocol Service {
 }
 
 final class MockService: Service {
-    func fetchData(completionHandler: @escaping (([DataModel]) -> Void)) {
+    func fetchData(completionHandler: @escaping (([DataModel])->Void)) {
         completionHandler(DataModel.mockData)
     }
 }
 
 final class MainService: Service {
-    func fetchData(completionHandler: @escaping (([DataModel]) -> Void)) {
+    func fetchData(completionHandler: @escaping (([DataModel])->Void)) {
         guard let url = URL(string: "https://api.github.com/users/LionKing2303/repos") else {
             completionHandler([])
             return
