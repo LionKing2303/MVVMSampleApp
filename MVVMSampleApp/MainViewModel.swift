@@ -16,9 +16,15 @@ final class MainViewModel: ObservableObject {
 
     // MARK: -- Public variables
     @Published var filtered: [MainTableViewCellModel] = []
-    
+    @Published var searchText: String = ""
+
     init(service: Service) {
         self.service = service
+        
+        $searchText.sink { [weak self] text in
+            self?.filter(with: text)
+        }
+        .store(in: &cancellables)
     }
     
     func fetchRepositories() {
@@ -27,15 +33,8 @@ final class MainViewModel: ObservableObject {
             .map { item in
                 item.map(\.toCellModel)
             }
-            .sink { completion in
-                switch completion {
-                case .failure:
-                    self.repos = []
-                    self.filtered = self.repos
-                case .finished:
-                    break
-                }
-            } receiveValue: { [weak self] repos in
+            .replaceError(with: [])
+            .sink { [weak self] repos in
                 guard let self = self else { return }
                 self.repos = repos
                 self.filtered = self.repos
