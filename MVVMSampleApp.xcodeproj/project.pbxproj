@@ -11,8 +11,6 @@
 		AC3328E126D0F6F500054D8A /* MainViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3328E026D0F6F500054D8A /* MainViewCellViewModel.swift */; };
 		AC3328E426D0F78D00054D8A /* MainViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3328E326D0F78D00054D8A /* MainViewCellView.swift */; };
 		AC6DBA3226CC03BE00DA514A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */; };
-		AC6DBA3626CC03BE00DA514A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3526CC03BE00DA514A /* MainViewController.swift */; };
-		AC6DBA3926CC03BE00DA514A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6DBA3726CC03BE00DA514A /* Main.storyboard */; };
 		AC6DBA3E26CC03C500DA514A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6DBA3C26CC03C500DA514A /* LaunchScreen.storyboard */; };
 		AC6DBA4926CC087E00DA514A /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA4826CC087E00DA514A /* MainTableViewCell.swift */; };
 		AC6DBA4C26CC092500DA514A /* MainTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA4B26CC092500DA514A /* MainTableViewCellModel.swift */; };
@@ -28,8 +26,6 @@
 		AC6DBA2E26CC03BE00DA514A /* MVVMSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC6DBA3526CC03BE00DA514A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		AC6DBA3826CC03BE00DA514A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC6DBA3A26CC03C500DA514A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC6DBA3D26CC03C500DA514A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC6DBA3F26CC03C500DA514A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,13 +71,11 @@
 				AC3328E026D0F6F500054D8A /* MainViewCellViewModel.swift */,
 				AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */,
 				AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */,
-				AC6DBA3526CC03BE00DA514A /* MainViewController.swift */,
 				ACE2DE2B26CC16DB008F11D7 /* MainViewModel.swift */,
 				ACE2DE3126CC175F008F11D7 /* MainService.swift */,
 				ACE2DE2E26CC173F008F11D7 /* DataModel.swift */,
 				AC6DBA4826CC087E00DA514A /* MainTableViewCell.swift */,
 				AC6DBA4B26CC092500DA514A /* MainTableViewCellModel.swift */,
-				AC6DBA3726CC03BE00DA514A /* Main.storyboard */,
 				AC6DBA3A26CC03C500DA514A /* Assets.xcassets */,
 				AC6DBA3C26CC03C500DA514A /* LaunchScreen.storyboard */,
 				AC6DBA3F26CC03C500DA514A /* Info.plist */,
@@ -147,7 +141,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC6DBA3E26CC03C500DA514A /* LaunchScreen.storyboard in Resources */,
-				AC6DBA3926CC03BE00DA514A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +153,6 @@
 			files = (
 				ACE2DE2F26CC173F008F11D7 /* DataModel.swift in Sources */,
 				AC3328DA26D0005500054D8A /* MainView.swift in Sources */,
-				AC6DBA3626CC03BE00DA514A /* MainViewController.swift in Sources */,
 				ACE2DE3226CC175F008F11D7 /* MainService.swift in Sources */,
 				AC6DBA4C26CC092500DA514A /* MainTableViewCellModel.swift in Sources */,
 				AC3328E426D0F78D00054D8A /* MainViewCellView.swift in Sources */,
@@ -174,14 +166,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AC6DBA3726CC03BE00DA514A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC6DBA3826CC03BE00DA514A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC6DBA3C26CC03C500DA514A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

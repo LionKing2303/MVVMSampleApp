@@ -25,8 +25,8 @@ struct MainView: View {
                     .font(.system(size: 22))
             }
             .padding()
-            List(viewModel.filtered, id: \.repositoryName) { item in
-                MainViewCell(viewModel: MainViewCell.ViewModel(item: item))
+            List(viewModel.filtered, id: \.item.repositoryName) { viewModel in
+                MainViewCell(viewModel: viewModel)
             }
             .animation(.spring())
         }
