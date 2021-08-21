@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AC3328DA26D0005500054D8A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3328D926D0005500054D8A /* MainView.swift */; };
-		AC3328DE26D0F6AA00054D8A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3328DD26D0F6AA00054D8A /* ImageLoader.swift */; };
 		AC3328E126D0F6F500054D8A /* MainViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3328E026D0F6F500054D8A /* MainViewCellViewModel.swift */; };
 		AC3328E426D0F78D00054D8A /* MainViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3328E326D0F78D00054D8A /* MainViewCellView.swift */; };
 		AC6DBA3226CC03BE00DA514A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */; };
@@ -24,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		AC3328D926D0005500054D8A /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		AC3328DD26D0F6AA00054D8A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		AC3328E026D0F6F500054D8A /* MainViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCellViewModel.swift; sourceTree = "<group>"; };
 		AC3328E326D0F78D00054D8A /* MainViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCellView.swift; sourceTree = "<group>"; };
 		AC6DBA2E26CC03BE00DA514A /* MVVMSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +78,6 @@
 				AC6DBA3526CC03BE00DA514A /* MainViewController.swift */,
 				ACE2DE2B26CC16DB008F11D7 /* MainViewModel.swift */,
 				ACE2DE3126CC175F008F11D7 /* MainService.swift */,
-				AC3328DD26D0F6AA00054D8A /* ImageLoader.swift */,
 				ACE2DE2E26CC173F008F11D7 /* DataModel.swift */,
 				AC6DBA4826CC087E00DA514A /* MainTableViewCell.swift */,
 				AC6DBA4B26CC092500DA514A /* MainTableViewCellModel.swift */,
@@ -166,7 +163,6 @@
 				AC6DBA3626CC03BE00DA514A /* MainViewController.swift in Sources */,
 				ACE2DE3226CC175F008F11D7 /* MainService.swift in Sources */,
 				AC6DBA4C26CC092500DA514A /* MainTableViewCellModel.swift in Sources */,
-				AC3328DE26D0F6AA00054D8A /* ImageLoader.swift in Sources */,
 				AC3328E426D0F78D00054D8A /* MainViewCellView.swift in Sources */,
 				AC6DBA3226CC03BE00DA514A /* AppDelegate.swift in Sources */,
 				AC6DBA4926CC087E00DA514A /* MainTableViewCell.swift in Sources */,

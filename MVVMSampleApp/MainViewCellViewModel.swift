@@ -20,7 +20,11 @@ extension MainViewCell {
         }
         
         func fetchAvatar() {
-            downloadTask = ImageLoader.shared.image(for: item.avatarURL)
+            guard let url = URL(string: item.avatarURL) else { return }
+            downloadTask = URLSession.shared.dataTaskPublisher(for: url)
+                .map(\.data)
+                .map { UIImage(data: $0) }
+                .replaceError(with: nil)
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] uiImage in
                     self?.image = uiImage
