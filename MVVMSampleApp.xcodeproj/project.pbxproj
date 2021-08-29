@@ -24,7 +24,6 @@
 		AC3328E326D0F78D00054D8A /* MainViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCellView.swift; sourceTree = "<group>"; };
 		AC6DBA2E26CC03BE00DA514A /* MVVMSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AC6DBA3A26CC03C500DA514A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC6DBA3D26CC03C500DA514A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC6DBA3F26CC03C500DA514A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */,
-				AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */,
 				AC3328EE26D11BD100054D8A /* Model */,
 				AC3328EB26D11BA000054D8A /* View */,
 				AC3328EC26D11BB100054D8A /* View Model */,

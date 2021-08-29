@@ -33,7 +33,7 @@ final class MainViewModel: ObservableObject {
         service.fetchData()
             .receive(on: DispatchQueue.main)
             .map { item in
-                item.map(\.toCellModel)
+                item.map { $0.toCellModel }
             }
             .replaceError(with: [])
             .sink { [weak self] repos in

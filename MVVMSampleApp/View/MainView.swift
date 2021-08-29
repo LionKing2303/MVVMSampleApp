@@ -31,7 +31,7 @@ struct MainView: View {
             .animation(.spring())
         }
         .onAppear {
-            viewModel.fetchRepositories()
+            self.viewModel.fetchRepositories()
         }
     }
 }
