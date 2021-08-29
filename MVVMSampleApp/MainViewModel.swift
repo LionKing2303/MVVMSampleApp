@@ -31,7 +31,7 @@ final class MainViewModel {
             
             // Formatting the data model into representable model
             self.repos = repos
-                .map(\.toCellModel)
+                .map { $0.toCellModel }
             self.filtered = self.repos
         }
     }
