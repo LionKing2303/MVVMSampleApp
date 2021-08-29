@@ -22,7 +22,6 @@
 /* Begin PBXFileReference section */
 		AC6DBA2E26CC03BE00DA514A /* MVVMSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AC6DBA3526CC03BE00DA514A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AC6DBA3826CC03BE00DA514A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC6DBA3A26CC03C500DA514A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +45,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC61BB8226DBC3E60046C032 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC6DBA3526CC03BE00DA514A /* MainViewController.swift */,
+				AC6DBA4826CC087E00DA514A /* MainTableViewCell.swift */,
+				AC6DBA3726CC03BE00DA514A /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC61BB8326DBC3F30046C032 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACE2DE2B26CC16DB008F11D7 /* MainViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		AC61BB8426DBC4150046C032 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACE2DE2E26CC173F008F11D7 /* DataModel.swift */,
+				AC6DBA4B26CC092500DA514A /* MainTableViewCellModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC61BB8626DBC4200046C032 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				ACE2DE3126CC175F008F11D7 /* MainService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		AC6DBA2526CC03BE00DA514A = {
 			isa = PBXGroup;
 			children = (
@@ -66,14 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */,
-				AC6DBA3326CC03BE00DA514A /* SceneDelegate.swift */,
-				AC6DBA3526CC03BE00DA514A /* MainViewController.swift */,
-				ACE2DE2B26CC16DB008F11D7 /* MainViewModel.swift */,
-				ACE2DE3126CC175F008F11D7 /* MainService.swift */,
-				ACE2DE2E26CC173F008F11D7 /* DataModel.swift */,
-				AC6DBA4826CC087E00DA514A /* MainTableViewCell.swift */,
-				AC6DBA4B26CC092500DA514A /* MainTableViewCellModel.swift */,
-				AC6DBA3726CC03BE00DA514A /* Main.storyboard */,
+				AC61BB8426DBC4150046C032 /* Model */,
+				AC61BB8226DBC3E60046C032 /* View */,
+				AC61BB8326DBC3F30046C032 /* View Model */,
+				AC61BB8626DBC4200046C032 /* Service */,
 				AC6DBA3A26CC03C500DA514A /* Assets.xcassets */,
 				AC6DBA3C26CC03C500DA514A /* LaunchScreen.storyboard */,
 				AC6DBA3F26CC03C500DA514A /* Info.plist */,
