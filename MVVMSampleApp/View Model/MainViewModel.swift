@@ -25,21 +25,14 @@ final class MainViewModel: ObservableObject {
         service.fetchData()
             .receive(on: DispatchQueue.main)
             .map { item in
-                item.map(\.toCellModel)
+                item.map { $0.toCellModel }
             }
-            .sink { completion in
-                switch completion {
-                case .failure:
-                    self.repos = []
-                    self.filtered = self.repos
-                case .finished:
-                    break
-                }
-            } receiveValue: { [weak self] repos in
+            .replaceError(with: [])
+            .sink(receiveValue: { [weak self] repos in
                 guard let self = self else { return }
                 self.repos = repos
                 self.filtered = self.repos
-            }
+            })
             .store(in: &cancellables)
     }
     
