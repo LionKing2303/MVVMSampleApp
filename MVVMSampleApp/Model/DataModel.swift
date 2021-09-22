@@ -50,8 +50,40 @@ extension DataModel {
 
 extension DataModel {
     static let mockData: [Self] = [
-        DataModel(id: 1, name: "First repo", fullName: "First Repository", owner: DataModel.Owner(avatarUrl: "https://avatars.githubusercontent.com/u/26278101?v=4"), language: "Swift", defaultBranch: "main", createdAt: Date(), cloneURL: "https://github.com/LionKing2303/FirstRepo.git"),
-               DataModel(id: 2, name: "Second repo", fullName: "Second Repository", owner: DataModel.Owner(avatarUrl: "https://avatars.githubusercontent.com/u/26278101?v=4"), language: "Swift", defaultBranch: "main", createdAt: Date(), cloneURL: "https://github.com/LionKing2303/FirstRepo.git"),
-               DataModel(id: 3, name: "Third repo", fullName: "Third Repository", owner: DataModel.Owner(avatarUrl: "https://avatars.githubusercontent.com/u/26278101?v=4"), language: "Java", defaultBranch: "master", createdAt: Date(), cloneURL: "https://github.com/LionKing2303/FirstRepo.git")
+        DataModel(
+            id: 1,
+            name: "First repo",
+            fullName: "First Repository",
+            owner: DataModel.Owner(
+                avatarUrl: "https://avatars.githubusercontent.com/u/26278101?v=4"
+            ),
+            language: "Swift",
+            defaultBranch: "main",
+            createdAt: Date(),
+            cloneURL: "https://github.com/LionKing2303/FirstRepo.git"
+        ),
+        DataModel(
+            id: 2,
+            name: "Second repo",
+            fullName: "Second Repository",
+            owner: DataModel.Owner(
+                avatarUrl: "https://avatars.githubusercontent.com/u/26278101?v=4"
+            ),
+            language: "Swift",
+            defaultBranch: "main",
+            createdAt: Date(),
+            cloneURL: "https://github.com/LionKing2303/FirstRepo.git"),
+        DataModel(
+            id: 3,
+            name: "Third repo",
+            fullName: "Third Repository",
+            owner: DataModel.Owner(
+                avatarUrl: "https://avatars.githubusercontent.com/u/26278101?v=4"
+            ),
+            language: "Java",
+            defaultBranch: "master",
+            createdAt: Date(),
+            cloneURL: "https://github.com/LionKing2303/FirstRepo.git"
+        )
     ]
 }

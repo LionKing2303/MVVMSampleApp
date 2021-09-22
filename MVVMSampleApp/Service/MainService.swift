@@ -10,7 +10,7 @@ import Combine
 
 enum ServiceError: Error {
     case invalidURL
-    case generic
+    case general
 }
 
 protocol Service {
@@ -38,9 +38,7 @@ final class MainService: Service {
         return URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: [DataModel].self, decoder: decoder)
-            .mapError { error in
-                ServiceError.generic
-            }
+            .mapError { _ in ServiceError.general }
             .eraseToAnyPublisher()
     }
 }

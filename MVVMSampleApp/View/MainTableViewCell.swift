@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class MainTableViewCell: UITableViewCell {
 
@@ -16,44 +17,28 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var defaultBranchName: UILabel!
     @IBOutlet weak var language: UILabel!
         
-    private let defaultAvatarImage = UIImage(named: "person.fill")
-    private var avatarImage: UIImage?
+    private var viewModel: MainTableViewCellViewModel?
+    private var cancellables = Set<AnyCancellable>()
     
-    func configure(with model: MainTableViewCellModel) {
-        fetchAvatar(from: model.avatarURL)
-        repositoryName.text = model.repositoryName
-        defaultBranchName.text = "Default branch: \(model.defaultBranchName)"
-        language.text = "Language: \(model.language)"
-    }
-
-    func fetchAvatar(from urlString: String) {
-        // If already fetched use that
-        if let avatarImage = avatarImage {
-            self.avatar.image = avatarImage
-            return
-        }
+    func configure(with viewModel: MainTableViewCellViewModel) {
+        self.viewModel = viewModel
         
-        // Set default image - set this until we fetch from server
-        self.avatar.image = defaultAvatarImage
-        guard let url = URL(string: urlString) else { return }
-
-        // Fetch image from server
-        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            let image = UIImage(data: data)
-            
-            // Store image
-            self?.avatarImage = image
-            
-            // Update UI
-            DispatchQueue.main.async {
-                self?.avatar.layer.cornerRadius = 10.0
-                self?.avatar.image = image
-            }
-        }
-        task.resume()
+        self.viewModel?.$repositoryName
+            .assign(to: \.text, on: repositoryName)
+            .store(in: &cancellables)
+        
+        self.viewModel?.$defaultBranchName
+            .assign(to: \.text, on: defaultBranchName)
+            .store(in: &cancellables)
+        
+        self.viewModel?.$language
+            .assign(to: \.text, on: language)
+            .store(in: &cancellables)
+        
+        avatar.layer.cornerRadius = 10.0
+        self.viewModel?.$avatar
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.image, on: avatar)
+            .store(in: &cancellables)
     }
 }

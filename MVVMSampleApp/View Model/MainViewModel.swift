@@ -11,37 +11,45 @@ import Combine
 final class MainViewModel: ObservableObject {
     // MARK: -- Private variables
     private let service: Service
-    private var repos: [MainTableViewCellModel] = []
+    private var repos: [MainTableViewCellViewModel] = [] {
+        didSet {
+            filtered = repos
+        }
+    }
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: -- Public variables
-    @Published var filtered: [MainTableViewCellModel] = []
+    @Published var searchText: String = ""
+    @Published private(set) var filtered: [MainTableViewCellViewModel] = []
     
     init(service: Service) {
         self.service = service
+        
+        // When search text changes then
+        // filter items that their repository
+        // name contains a text (case-insensitive)
+        $searchText
+            .map(filter)
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.filtered, on: self)
+            .store(in: &cancellables)
     }
     
     func fetchRepositories() {
         service.fetchData()
-            .receive(on: DispatchQueue.main)
             .map { item in
-                item.map { $0.toCellModel }
+                item
+                    .map(\.toCellModel)
+                    .map(MainTableViewCellViewModel.init)
             }
             .replaceError(with: [])
-            .sink(receiveValue: { [weak self] repos in
-                guard let self = self else { return }
-                self.repos = repos
-                self.filtered = self.repos
-            })
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.repos, on: self)
             .store(in: &cancellables)
     }
     
-    func filter(with text: String) {
-        // Filter items that their repository name contains a text (case-insensitive)
-        filtered = repos
-            .filter { model in
-                if text.count == 0 { return true }
-                return model.repositoryName.lowercased().contains(text.lowercased())
-            }
+    private func filter(with text: String) -> [MainTableViewCellViewModel] {
+        self.repos
+            .filter { $0.repositoryNameContains(text) }
     }
 }

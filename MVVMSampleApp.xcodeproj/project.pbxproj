@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC49A29226F9E9DA00099A2E /* MainTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49A29126F9E9DA00099A2E /* MainTableViewCellViewModel.swift */; };
 		AC6DBA3226CC03BE00DA514A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */; };
 		AC6DBA3626CC03BE00DA514A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6DBA3526CC03BE00DA514A /* MainViewController.swift */; };
 		AC6DBA3926CC03BE00DA514A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6DBA3726CC03BE00DA514A /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC49A29126F9E9DA00099A2E /* MainTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		AC6DBA2E26CC03BE00DA514A /* MVVMSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6DBA3126CC03BE00DA514A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6DBA3526CC03BE00DA514A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE2DE2B26CC16DB008F11D7 /* MainViewModel.swift */,
+				AC49A29126F9E9DA00099A2E /* MainTableViewCellViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				AC6DBA4C26CC092500DA514A /* MainTableViewCellModel.swift in Sources */,
 				AC6DBA3226CC03BE00DA514A /* AppDelegate.swift in Sources */,
 				AC6DBA4926CC087E00DA514A /* MainTableViewCell.swift in Sources */,
+				AC49A29226F9E9DA00099A2E /* MainTableViewCellViewModel.swift in Sources */,
 				ACE2DE2C26CC16DB008F11D7 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

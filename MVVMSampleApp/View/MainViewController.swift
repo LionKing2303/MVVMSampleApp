@@ -20,15 +20,15 @@ class MainViewController: UIViewController {
     
     // MARK: -- Variables
     let viewModel: MainViewModel = .init(service: MainService())
-    var dataSource: UITableViewDiffableDataSource<Section,MainTableViewCellModel>!
+    var dataSource: UITableViewDiffableDataSource<Section,MainTableViewCellViewModel>!
     var cancellables = Set<AnyCancellable>()
     
     // MARK: -- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureTable()
         configureSearchField()
+        configureTable()
         bindTable()
         loadData()
     }
@@ -42,10 +42,10 @@ class MainViewController: UIViewController {
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableView.automaticDimension
         dataSource = .init(tableView: tableView, cellProvider: {
-            (tableView, indexPath, model) -> UITableViewCell? in
+            (tableView, indexPath, viewModel) -> UITableViewCell? in
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier) as? MainTableViewCell else { return UITableViewCell() }
-            cell.configure(with: model)
+            cell.configure(with: viewModel)
             return cell
         })
     }
@@ -63,8 +63,8 @@ class MainViewController: UIViewController {
         viewModel.fetchRepositories()
     }
     
-    private func applySnapshot(with items: [MainTableViewCellModel]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section,MainTableViewCellModel>()
+    private func applySnapshot(with items: [MainTableViewCellViewModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section,MainTableViewCellViewModel>()
         snapshot.appendSections([.main])
         snapshot.appendItems(items, toSection: .main)
         dataSource.apply(snapshot)
@@ -78,7 +78,7 @@ extension MainViewController: UITextFieldDelegate {
             let updatedText = text.replacingCharacters(in: textRange, with: string)
             
             // Ask the view model to filter the items
-            viewModel.filter(with: updatedText)
+            viewModel.searchText = updatedText
         }
         return true
     }
