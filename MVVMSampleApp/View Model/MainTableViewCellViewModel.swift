@@ -42,6 +42,7 @@ final class MainTableViewCellViewModel: ObservableObject {
             .map(\.data)
             .map(UIImage.init)
             .replaceError(with: defaultAvatarImage)
+            .receive(on: DispatchQueue.main)
             .assign(to: \.avatar, on: self)
     }
 }
