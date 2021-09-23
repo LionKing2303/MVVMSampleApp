@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class MainViewModel: ObservableObject {
+final class MainViewModel {
     // MARK: -- Private variables
     private let service: Service
     @Published private var repos: [MainTableViewCellViewModel] = []

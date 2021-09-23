@@ -8,7 +8,7 @@
 import Combine
 import UIKit
 
-final class MainTableViewCellViewModel: ObservableObject {
+final class MainTableViewCellViewModel {
     // MARK: -- Private variables
     private let model: MainTableViewCellModel
     private let defaultAvatarImage = UIImage(named: "person.fill")
