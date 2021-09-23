@@ -24,8 +24,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureTable()
         configureSearchField()
+        configureTable()
         loadData()
     }
     
@@ -53,8 +53,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier) as? MainTableViewCell else { return UITableViewCell() }
-        let model = viewModel.filtered[indexPath.row]
-        cell.configure(with: model)
+        let viewModel = viewModel.filtered[indexPath.row]
+        cell.configure(with: viewModel)
         return cell
     }
 }
@@ -64,7 +64,7 @@ extension MainViewController: UITextFieldDelegate {
         if let text = textField.text,
            let textRange = Range(range, in: text) {
             let updatedText = text.replacingCharacters(in: textRange, with: string)
-            viewModel.filter(with: updatedText)
+            viewModel.searchText = updatedText
         }
         return true
     }
@@ -72,8 +72,6 @@ extension MainViewController: UITextFieldDelegate {
 
 extension MainViewController: MainViewControllerDelegate {
     func updateUI() {
-        DispatchQueue.main.async {
-            self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
-        }
+        self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
     }
 }

@@ -10,13 +10,24 @@ import Foundation
 final class MainViewModel {
     // MARK: -- Private variables
     private let service: Service
-    private var repos: [MainTableViewCellModel] = []
+    private var repos: [MainTableViewCellViewModel] = [] {
+        didSet {
+            filtered = repos
+        }
+    }
     private var viewDelegate: MainViewControllerDelegate?
     
     // MARK: -- Public variables
-    var filtered: [MainTableViewCellModel] = [] {
+    var searchText: String = "" {
         didSet {
-            viewDelegate?.updateUI()
+            filtered = filter(with: searchText)
+        }
+    }
+    private(set) var filtered: [MainTableViewCellViewModel] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.viewDelegate?.updateUI()
+            }
         }
     }
     
@@ -26,22 +37,23 @@ final class MainViewModel {
     }
     
     func fetchRepositories() {
-        service.fetchData { [weak self] (repos) in
-            guard let self = self else { return }
+        service.fetchData { [weak self] result in
+            switch result {
+            case .success(let repos):
+                // Formatting the data model into representable model
+                self?.repos = repos
+                    .map { $0.toCellModel }
+                    .map(MainTableViewCellViewModel.init)
+            case .failure:
+                self?.repos = []
+            }
             
-            // Formatting the data model into representable model
-            self.repos = repos
-                .map { $0.toCellModel }
-            self.filtered = self.repos
         }
     }
     
-    func filter(with text: String) {
+    private func filter(with text: String) -> [MainTableViewCellViewModel] {
         // Filter items that their repository name contains a text (case-insensitive)
-        filtered = repos
-            .filter { model in
-                if text.count == 0 { return true }
-                return model.repositoryName.lowercased().contains(text.lowercased())
-            }
+        self.repos
+            .filter { $0.repositoryNameContains(text) }
     }
 }
