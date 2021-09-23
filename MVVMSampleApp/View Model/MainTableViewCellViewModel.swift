@@ -26,9 +26,7 @@ final class MainTableViewCellViewModel: ObservableObject {
         avatar = defaultAvatarImage
         repositoryName = self.model.repositoryName
         defaultBranchName = "Default branch: \(self.model.defaultBranchName)"
-        language = "Language: \(self.model.language)"
-        
-        fetchAvatar()
+        language = "Language: \(self.model.language)"        
     }
     
     func repositoryNameContains(_ text: String) -> Bool {
@@ -36,8 +34,12 @@ final class MainTableViewCellViewModel: ObservableObject {
         return model.repositoryName.lowercased().contains(text.lowercased())
     }
     
-    private func fetchAvatar() {
-        guard let url = URL(string: self.model.avatarURL) else { return }
+    func fetchAvatar() {
+        guard avatar == nil || avatar == defaultAvatarImage else { return }
+        guard let url = URL(string: self.model.avatarURL) else {
+            avatar = defaultAvatarImage
+            return
+        }
         task = URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .map(UIImage.init)

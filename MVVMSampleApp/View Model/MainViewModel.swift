@@ -11,11 +11,7 @@ import Combine
 final class MainViewModel: ObservableObject {
     // MARK: -- Private variables
     private let service: Service
-    private var repos: [MainTableViewCellViewModel] = [] {
-        didSet {
-            filtered = repos
-        }
-    }
+    @Published private var repos: [MainTableViewCellViewModel] = []
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: -- Public variables
@@ -24,6 +20,10 @@ final class MainViewModel: ObservableObject {
     
     init(service: Service) {
         self.service = service
+        
+        $repos
+            .assign(to: \.filtered, on: self)
+            .store(in: &cancellables)
         
         // When search text changes then
         // filter items that their repository

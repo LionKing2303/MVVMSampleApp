@@ -40,5 +40,7 @@ class MainTableViewCell: UITableViewCell {
             .receive(on: DispatchQueue.main)
             .assign(to: \.image, on: avatar)
             .store(in: &cancellables)
+        
+        self.viewModel?.fetchAvatar()
     }
 }
